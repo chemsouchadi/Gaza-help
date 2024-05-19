@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="do.css" rel="stylesheet">
+    <title>Donation for Gaza</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="donationForm" class="">
+            <div class="mb-4">
+                <label class="" for="firstName">First Name</label>
+                <input class="" id="firstName" type="text" placeholder="First Name" required>
+            </div>
+            <div class="mb-4">
+                <label class="" for="lastName">Last Name</label>
+                <input class="" id="lastName" type="text" placeholder="Last Name" required>
+            </div>
+            <div class="mb-4">
+                <label class="" for="email">Email</label>
+                <input class="" id="email" type="email" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+                <label class="" for="donationAmount">Donation Amount</label>
+                <input class="" id="donationAmount" type="number" placeholder="Donation Amount" required>
+            </div>
+            <div class="mb-6">
+                <label class="" for="message">Message</label>
+                <textarea class="" id="message" placeholder="Leave a message" rows="3"></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="" type="button" id="submitBtn">Make A Difference!</button>
+            </div>
+        </form>
+        <section id="output" class="" style="min-height: 100px;">
+            <p class="font-bold">Responses</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var donationAmount = document.getElementById('donationAmount').value;
+            var message = document.getElementById('message').value;
+
+            if (firstName && lastName && email && donationAmount) {
+                var output = document.getElementById('output');
+                output.innerHTML = `<p>Thank you, ${firstName} ${lastName} (${email}), for your generous donation of $${donationAmount}. Your support helps us make a difference in Gaza!</p>`;
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        });
+    </script>
+</body>
+
+</html>
